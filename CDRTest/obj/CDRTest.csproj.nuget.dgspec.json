@@ -1,0 +1,322 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRTest\\CDRTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRApi\\CDRApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRApi\\CDRApi.csproj",
+        "projectName": "CDRApi",
+        "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRApi\\CDRApi.csproj",
+        "packagesPath": "C:\\Users\\RJPeres\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\RJPeres\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj": {
+                "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj"
+              },
+              "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\CDRServices.csproj": {
+                "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\CDRServices.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.1.1, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.12, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj",
+        "projectName": "CDRModel",
+        "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj",
+        "packagesPath": "C:\\Users\\RJPeres\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\RJPeres\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\CDRServices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\CDRServices.csproj",
+        "projectName": "CDRServices",
+        "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\CDRServices.csproj",
+        "packagesPath": "C:\\Users\\RJPeres\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\RJPeres\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj": {
+                "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRTest\\CDRTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRTest\\CDRTest.csproj",
+        "projectName": "CDRTest",
+        "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRTest\\CDRTest.csproj",
+        "packagesPath": "C:\\Users\\RJPeres\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\RJPeres\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRApi\\CDRApi.csproj": {
+                "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRApi\\CDRApi.csproj"
+              },
+              "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj": {
+                "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRModel\\CDRModel.csproj"
+              },
+              "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\CDRServices.csproj": {
+                "projectPath": "C:\\Users\\RJPeres\\source\\repos\\CDRApi\\CDRServices\\CDRServices.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.7.1, )"
+            },
+            "NSubstitute": {
+              "target": "Package",
+              "version": "[5.1.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

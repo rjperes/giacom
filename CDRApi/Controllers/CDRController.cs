@@ -17,16 +17,19 @@ namespace CDRApi.Controllers
         private readonly ILogger<CDRController> _logger;
         private readonly ICDRRepository _repository;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public CDRController(ILogger<CDRController> logger, ICDRRepository repository, IMapper mapper)
+        public CDRController(ILogger<CDRController> logger, ICDRRepository repository, IMapper mapper, IMediator mediator)
         {
             ArgumentNullException.ThrowIfNull(logger, nameof(logger));
             ArgumentNullException.ThrowIfNull(repository, nameof(repository));
             ArgumentNullException.ThrowIfNull(mapper, nameof(mapper));
+            ArgumentNullException.ThrowIfNull(mediator, nameof(mediator));
 
             _logger = logger;
             _repository = repository;
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         //[HttpPost]
@@ -47,7 +50,7 @@ namespace CDRApi.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Post([Required] IFormFile file, [FromServices] ICsvParser parser, IMediator mediator, CancellationToken cancellation)
+        public async Task<IActionResult> Post([Required] IFormFile file, [FromServices] ICsvParser parser, CancellationToken cancellation)
         {
             try
             {
@@ -66,7 +69,7 @@ namespace CDRApi.Controllers
 
                 _logger.LogInformation($"Inserted {results} calls into the database");
 
-                await mediator.Publish(new FileUploadedCommand(transformedCalls), cancellation);
+                await _mediator.Publish(new FileUploadedCommand(transformedCalls), cancellation);
 
                 return Ok();
             }
@@ -87,16 +90,15 @@ namespace CDRApi.Controllers
             {
                 var call = await _repository.Find(reference, cancellation);
 
-                if (call != null)
+                if (call == null)
                 {
-                    var callDto = _mapper.Map<Call, CallDto>(call);
-
-                    return Ok(callDto);
+                    _logger.LogInformation($"Call with reference {reference} not found");
+                    return NotFound();
                 }
 
-                _logger.LogInformation($"Call with reference {reference} not found");
+                var callDto = _mapper.Map<Call, CallDto>(call);
 
-                return NotFound();
+                return Ok(callDto);
             }
             catch (Exception ex)
             {
@@ -151,7 +153,6 @@ namespace CDRApi.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<CallerStatsDto>>> CallerStats(CancellationToken cancellation, string callerId, DateTime from, DateTime to, CallType? type = null)
         {
             if (from > to)
@@ -170,11 +171,6 @@ namespace CDRApi.Controllers
             {
                 var callerStats = await _repository.CallerStats(callerId, from, to, type, cancellation);
 
-                if (callerStats == null)
-                {
-                    _logger.LogInformation("No records found");
-                    return NotFound();
-                }
 
                 var callStatsDto = callerStats.Select(x => _mapper.Map<CallerStats, CallerStatsDto>(x)).ToList();
 
@@ -193,7 +189,6 @@ namespace CDRApi.Controllers
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<CallerStatsDto>>> TopCallStats(CancellationToken cancellation, string callerId, int top, DateTime from, DateTime to, CallType? type = null)
         {
             if (from > to)
@@ -217,12 +212,6 @@ namespace CDRApi.Controllers
             try
             {
                 var topCallStats = await _repository.TopCallStats(callerId, top, from, to, type, cancellation);
-
-                if (topCallStats == null)
-                {
-                    _logger.LogInformation("No records found");
-                    return NotFound();
-                }
 
                 var topCallStatsDto = topCallStats.Select(x => _mapper.Map<CallerStats, CallerStatsDto>(x)).ToList();
 

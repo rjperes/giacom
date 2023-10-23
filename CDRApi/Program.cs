@@ -2,6 +2,8 @@ using CDRApi.Services;
 using CDRModel;
 using CDRServices;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.Security.Cryptography.Xml;
 
 namespace CDRApi
 {
@@ -32,7 +34,7 @@ namespace CDRApi
             });
 
             builder.Services.AddScoped<ICDRRepository, CDRRepository>();
-            builder.Services.AddSingleton<ICsvParser, CsvParser>();
+            builder.Services.AddSingleton<ICsvParser>(sp => new CsvParser(sp.GetRequiredService<ILogger<CsvParser>>()) { IgnoreInvalidLines = builder.Configuration.GetValue<bool>("CsvParser:IgnoreInvalidLines") });
 
             var app = builder.Build();
 

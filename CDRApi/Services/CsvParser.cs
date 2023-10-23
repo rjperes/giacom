@@ -14,7 +14,7 @@ namespace CDRApi.Services
         }
 
         public char[] Separators { get; set; } = new char[] { ',' };
-        public bool IgnoreInvalidLines { get; set; } = true;
+        public bool IgnoreInvalidLines { get; set; }
 
         public async Task<IEnumerable<CallDto>> Parse(IFormFile file, CancellationToken cancellation = default)
         {
