@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/CDRApi/bin
+/CDRApi/obj
+/CDRModel/bin
+/CDRModel/obj
+/CDRServices/bin
+/CDRServices/obj
