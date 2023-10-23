@@ -1,6 +1,7 @@
 ﻿using CDRModel;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Reflection.Metadata.Ecma335;
 
 namespace CDRServices
 {
@@ -120,7 +121,51 @@ namespace CDRServices
             }
             catch (Exception ex)
             {
-                _logger.LogError($"An error occurred while trying to retrieve caller statistics");
+                _logger.LogError(ex, $"An error occurred while trying to retrieve caller statistics for {callerId} from {from} until {to} for {type}");
+                throw;
+            }
+        }
+
+        public async Task<IEnumerable<CallerStats>> TopCallStats(string callerId, int top, DateTime from, DateTime to, CallType? type = null, CancellationToken cancellation = default)
+        {
+            ArgumentException.ThrowIfNullOrEmpty(callerId, nameof(callerId));
+
+            if (from > to)
+            {
+                throw new ArgumentException("Invalid date range.", nameof(to));
+            }
+
+            if (top < 0 || top > 10)
+            {
+                throw new ArgumentOutOfRangeException(nameof(top), "Invalid maximum number of records.");
+            }
+
+            try
+            {
+                var query = _context!.Calls!.Where(x => x.CallerId == callerId && x.CallDate >= from && x.CallDate <= to);
+
+                if (type != null)
+                {
+                    query = query.Where(x => x.Type == type);
+                }
+
+                var calls = await query.OrderBy(x => x.Duration).Take(top).ToListAsync(cancellation);
+
+                return calls.Select(x => new CallerStats
+                {
+                    CallDate = x.CallDate,
+                    Cost = x.Cost,
+                    Currency = x.Currency,
+                    Duration = x.Duration,
+                    EndTime = x.EndTime,
+                    Recipient = x.Recipient,
+                    Reference = x.Reference,
+                    Type = x.Type
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred while retrieving the {top} top calls for {callerId} from {from} until {to} for {type}");
                 throw;
             }
         }

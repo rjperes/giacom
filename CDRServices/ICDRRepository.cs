@@ -26,5 +26,6 @@ namespace CDRServices
         Task<Call> Find(string reference, CancellationToken cancellation = default);
         Task<CallStats> CallStats(DateTime from, DateTime to, CallType? type = null, CancellationToken cancellation = default);
         Task<IEnumerable<CallerStats>> CallerStats(string callerId, DateTime from, DateTime to, CallType? type = null, CancellationToken cancellation = default);
+        Task<IEnumerable<CallerStats>> TopCallStats(string callerId, int top, DateTime from, DateTime to, CallType? type = null, CancellationToken cancellation = default);
     }
 }

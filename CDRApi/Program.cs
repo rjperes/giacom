@@ -1,4 +1,3 @@
-
 using CDRApi.Services;
 using CDRModel;
 using CDRServices;
@@ -18,7 +17,13 @@ namespace CDRApi
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
             builder.Services.AddAutoMapper(typeof(Program));
+
+            builder.Services.AddMediatR(options =>
+            {
+                options.RegisterServicesFromAssemblyContaining(typeof(Program));
+            });
 
             builder.Services.AddDbContextPool<CDRContext>(options =>
             {

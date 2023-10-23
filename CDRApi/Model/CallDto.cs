@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace CDRApi.Model
+﻿namespace CDRApi.Model
 {
     public class CallDto
     {
