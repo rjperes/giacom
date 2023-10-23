@@ -1,4 +1,5 @@
 
+using CDRApi.Services;
 using CDRModel;
 using CDRServices;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,7 @@ namespace CDRApi
             });
 
             builder.Services.AddScoped<ICDRRepository, CDRRepository>();
+            builder.Services.AddSingleton<ICsvParser, CsvParser>();
 
             var app = builder.Build();
 
@@ -39,7 +41,6 @@ namespace CDRApi
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

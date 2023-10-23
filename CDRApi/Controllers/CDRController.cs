@@ -1,5 +1,6 @@
 using AutoMapper;
 using CDRApi.Model;
+using CDRApi.Services;
 using CDRModel;
 using CDRServices;
 using Microsoft.AspNetCore.Mvc;
@@ -26,14 +27,37 @@ namespace CDRApi.Controllers
             _mapper = mapper;
         }
 
+        //[HttpPost]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //public async Task<IActionResult> Post([Required] CallDto[] calls, CancellationToken cancellation)
+        //{
+        //    var transformedCalls = calls.Select(x => _mapper.Map<CallDto, Call>(x)).ToList();
+
+        //    _logger.LogInformation($"Uploaded {transformedCalls.Count} calls");
+
+        //    var results = await _repository.Save(transformedCalls, cancellation);
+
+        //    _logger.LogInformation($"Inserted {results} calls into the database");
+
+        //    return Ok();
+        //}
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<IActionResult> Post([Required] CallDto[] calls, CancellationToken cancellation)
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Post([Required] IFormFile file, [FromServices] ICsvParser parser, CancellationToken cancellation)
         {
+            var calls = await parser.Parse(file, cancellation);
+
+            if (calls.Count() == 0)
+            {
+                return BadRequest();
+            }
+
             var transformedCalls = calls.Select(x => _mapper.Map<CallDto, Call>(x)).ToList();
 
             _logger.LogInformation($"Uploaded {transformedCalls.Count} calls");
-            
+
             var results = await _repository.Save(transformedCalls, cancellation);
 
             _logger.LogInformation($"Inserted {results} calls into the database");
