@@ -1,10 +1,10 @@
 ﻿# Introduction
 
-First, we need to create the database by updating the database with the current migration:
+First, we need to create the database by updating the database with the current migration (CDRApi folder):
 
 `dotnet ef database update`
 
-To execute the unit tests:
+To execute the unit tests (CDRTest folder):
 
 `dotnet test`
 
