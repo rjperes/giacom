@@ -3,9 +3,9 @@ using MediatR;
 
 namespace CDRApi.Messages
 {
-    public class FileUploadedCommand : ICommand, INotification
+    public class FileUploadedNotification : INotification
     {
-        public FileUploadedCommand(IEnumerable<Call> calls)
+        public FileUploadedNotification(IEnumerable<Call> calls)
         {
             this.Calls = calls;
         }

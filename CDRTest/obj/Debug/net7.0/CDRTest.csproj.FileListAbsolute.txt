@@ -153,3 +153,4 @@ C:\Users\RJPeres\source\repos\CDRApi\CDRTest\obj\Debug\net7.0\refint\CDRTest.dll
 C:\Users\RJPeres\source\repos\CDRApi\CDRTest\obj\Debug\net7.0\CDRTest.pdb
 C:\Users\RJPeres\source\repos\CDRApi\CDRTest\obj\Debug\net7.0\CDRTest.genruntimeconfig.cache
 C:\Users\RJPeres\source\repos\CDRApi\CDRTest\obj\Debug\net7.0\ref\CDRTest.dll
+C:\Users\RJPeres\source\repos\CDRApi\CDRTest\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll

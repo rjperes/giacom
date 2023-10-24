@@ -69,7 +69,7 @@ namespace CDRApi.Controllers
 
                 _logger.LogInformation($"Inserted {results} calls into the database");
 
-                await _mediator.Publish(new FileUploadedCommand(transformedCalls), cancellation);
+                await _mediator.Publish(new FileUploadedNotification(transformedCalls), cancellation);
 
                 return Ok();
             }

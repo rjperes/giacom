@@ -75,7 +75,7 @@ namespace CDRApi.Services
                 }
                 catch
                 {
-                    if (!this.IgnoreInvalidLines)
+                    if (!IgnoreInvalidLines)
                     {
                         throw;
                     }

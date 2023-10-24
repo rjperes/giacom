@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CDRApi.Handlers
 {
-    public class FileUploadedHandler : INotificationHandler<FileUploadedCommand>
+    public class FileUploadedHandler : INotificationHandler<FileUploadedNotification>
     {
         private readonly ILogger<FileUploadedHandler> _logger;
 
@@ -12,7 +12,7 @@ namespace CDRApi.Handlers
             _logger = logger;
         }
 
-        public Task Handle(FileUploadedCommand notification, CancellationToken cancellationToken)
+        public Task Handle(FileUploadedNotification notification, CancellationToken cancellationToken)
         {
             _logger.LogInformation("A file was just uploaded");
 

@@ -11,6 +11,7 @@
           "CDRApi": "1.0.0",
           "CDRModel": "1.0.0",
           "CDRServices": "1.0.0",
+          "Microsoft.EntityFrameworkCore.InMemory": "7.0.12",
           "Microsoft.NET.Test.Sdk": "17.7.1",
           "NSubstitute": "5.1.0",
           "coverlet.collector": "3.2.0",
@@ -131,6 +132,17 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/7.0.12": {},
+      "Microsoft.EntityFrameworkCore.InMemory/7.0.12": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.12"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
+            "assemblyVersion": "7.0.12.0",
+            "fileVersion": "7.0.1223.47811"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/7.0.12": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "7.0.12",
@@ -1558,6 +1570,13 @@
       "sha512": "sha512-feFe61uKUNoHJfo9tnO65BTzcpWEYIr34xWikhYgZl5c9RiiUJLuCoTqoGc9fuuKy+xk9aUa1NwgDGMC4KmBig==",
       "path": "microsoft.entityframeworkcore.analyzers/7.0.12",
       "hashPath": "microsoft.entityframeworkcore.analyzers.7.0.12.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/7.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Tdrvt7y1OKmyPjyzFlYeLnoe0zI78ypWlG87ck5cIYYVnst60fklbrVGxUMXdkwPiYmnGVIUL5H0lfh+dFwD1Q==",
+      "path": "microsoft.entityframeworkcore.inmemory/7.0.12",
+      "hashPath": "microsoft.entityframeworkcore.inmemory.7.0.12.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/7.0.12": {
       "type": "package",
